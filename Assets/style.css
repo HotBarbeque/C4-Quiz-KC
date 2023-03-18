@@ -1,15 +1,58 @@
+:root {
+    --light: #66e69d;
+    --dark: #052b18;
+}
+
+html {
+    background-color: var(--light)
+}
+
 .high-score {
-    position: absolute;
-    left: 0px;
+    float: left;
+    margin-left: 20px;
+    color: var(--dark);
+    font-size: 20px;
+    margin-top: -20px;
 }
 
 .time-left {
     float: right;
+    margin-right: 20px;
+    color: var(--dark);
+    font-size: 20px;
+    margin-top: -20px;
 }
 
 .intro {
     display: flex;
     justify-content: center;
+    text-align: center;
+    margin-top: 5%;
     margin-left: 25%;
     margin-right: 25%;
+    color: var(--dark);
+    font-size: 25px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: var(--dark);
+    font-size: 40px;
+    margin-top: 40px;
+}
+
+.start-button {
+    text-align: center;
+}
+
+.button-start {
+    background-color: var(--dark);
+    color: var(--light);
+    font-size: 25px;
+}
+
+.button-start:hover {
+    background-color: var(--light);
+    color: var(--dark);
 }
