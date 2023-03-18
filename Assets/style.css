@@ -1,0 +1,15 @@
+.high-score {
+    position: absolute;
+    left: 0px;
+}
+
+.time-left {
+    float: right;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
