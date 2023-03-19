@@ -65,3 +65,18 @@ h1 {
     border-top: 3px solid var(--dark);
     width: 100%;
 }
+
+.questions {
+    justify-content: center;
+    text-align: left;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: var(--dark);
+    font-size: 35px;
+}
+
+li:hover {
+background-color: var(--dark);
+color: var(--light);
+}
