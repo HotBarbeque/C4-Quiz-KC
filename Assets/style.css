@@ -12,7 +12,6 @@ html {
     margin-left: 20px;
     color: var(--dark);
     font-size: 20px;
-    margin-top: -20px;
 }
 
 .time-left {
@@ -20,7 +19,6 @@ html {
     margin-right: 20px;
     color: var(--dark);
     font-size: 20px;
-    margin-top: -20px;
 }
 
 .intro {
@@ -40,6 +38,9 @@ h1 {
     color: var(--dark);
     font-size: 40px;
     margin-top: 40px;
+    border-bottom: 3px solid var(--dark);
+    width: 100%;
+    text-shadow: 1px 1px var(--dark);
 }
 
 .start-button {
@@ -50,9 +51,17 @@ h1 {
     background-color: var(--dark);
     color: var(--light);
     font-size: 25px;
+    border-radius: 5%;
 }
 
 .button-start:hover {
     background-color: var(--light);
     color: var(--dark);
+}
+
+.footer {
+    position: absolute;
+    bottom: 50px;
+    border-top: 3px solid var(--dark);
+    width: 100%;
 }
