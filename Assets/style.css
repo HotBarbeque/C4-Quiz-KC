@@ -47,6 +47,10 @@ h1 {
     text-align: center;
 }
 
+.try-button {
+    text-align: center;
+}
+
 .button-start {
     background-color: var(--dark);
     color: var(--light);
@@ -79,4 +83,15 @@ h1 {
 li:hover {
 background-color: var(--dark);
 color: var(--light);
+}
+
+.lost {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: var(--dark);
+    font-size: 35px;
 }

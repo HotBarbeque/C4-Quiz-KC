@@ -2,17 +2,10 @@ var startButton = document.getElementById('start');
 var paragraph = document.getElementById('intro');
 var timeEl = document.querySelector("#time");
 var quest1 = document.querySelector("quest1");
-var right1 = document.querySelector("right1");
-var wrong1 = document.querySelector("wrong1");
 var quest2 = document.querySelector("quest2");
-var right2 = document.querySelector("right2");
-var wrong2 = document.querySelector("wrong2");
 var quest3 = document.querySelector("quest3");
-var right3 = document.querySelector("right3");
-var wrong3 = document.querySelector("wrong3");
 var quest4 = document.querySelector("quest4");
-var right4 = document.querySelector("right4");
-var wrong4 = document.querySelector("wrong4");
+
 
 //hides questions till prompted
 window.onload = function Quests() {
@@ -20,6 +13,7 @@ document.getElementById("quest1").style.display = 'none';
 document.getElementById("quest2").style.display = 'none';
 document.getElementById("quest3").style.display = 'none';
 document.getElementById("quest4").style.display = 'none';
+document.getElementById("youLost").style.display = 'none';
 }
 
 //starting the quiz
@@ -36,24 +30,35 @@ startButton.addEventListener('click', function setTime() {
     secondsLeft--;
     timeEl.textContent  = "Time: " + secondsLeft;
 
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
         clearInterval(timerInterval);
         sendMessage();
     }
     }, 1000);
 })
 
+//Prompts if time runs out
 function sendMessage() {
-    timeEl.textContent = " ";
-
+    document.getElementById("quest1").style.display = 'none';
+    document.getElementById("quest2").style.display = 'none';
+    document.getElementById("quest3").style.display = 'none';
+    document.getElementById("quest4").style.display = 'none';
+    timeEl.style.display = 'none';
+    document.getElementById("youLost").style.display = 'flex';
 }
 
 //first question
 document.getElementById("right1").addEventListener("click", Question1)
 document.getElementById("wrong1").addEventListener("click", Question1)
 document.getElementById("wrong1").addEventListener("click", Question1w)
+document.getElementById("wrong1a").addEventListener("click", Question1)
+document.getElementById("wrong1a").addEventListener("click", Question1w)
+document.getElementById("wrong1b").addEventListener("click", Question1)
+document.getElementById("wrong1b").addEventListener("click", Question1w)
 document.getElementById("right1").addEventListener("click", nextQuest)
 document.getElementById("wrong1").addEventListener("click", nextQuest)
+document.getElementById("wrong1a").addEventListener("click", nextQuest)
+document.getElementById("wrong1b").addEventListener("click", nextQuest)
 function Question1() {
     document.getElementById("quest1").style.display = "none"
 
@@ -71,8 +76,14 @@ function nextQuest() {
 document.getElementById("right2").addEventListener("click", Question2)
 document.getElementById("wrong2").addEventListener("click", Question2)
 document.getElementById("wrong2").addEventListener("click", Question2w)
+document.getElementById("wrong2a").addEventListener("click", Question2)
+document.getElementById("wrong2a").addEventListener("click", Question2w)
+document.getElementById("wrong2b").addEventListener("click", Question2)
+document.getElementById("wrong2b").addEventListener("click", Question2w)
 document.getElementById("right2").addEventListener("click", nextQuest1)
 document.getElementById("wrong2").addEventListener("click", nextQuest1)
+document.getElementById("wrong2a").addEventListener("click", nextQuest1)
+document.getElementById("wrong2b").addEventListener("click", nextQuest1)
 
 function Question2() {
     document.getElementById("quest2").style.display = "none"
@@ -90,8 +101,14 @@ function nextQuest1() {
 document.getElementById("right3").addEventListener("click", Question3)
 document.getElementById("wrong3").addEventListener("click", Question3)
 document.getElementById("wrong3").addEventListener("click", Question3w)
+document.getElementById("wrong3a").addEventListener("click", Question3)
+document.getElementById("wrong3a").addEventListener("click", Question3w)
+document.getElementById("wrong3b").addEventListener("click", Question3)
+document.getElementById("wrong3b").addEventListener("click", Question3w)
 document.getElementById("right3").addEventListener("click", nextQuest2)
 document.getElementById("wrong3").addEventListener("click", nextQuest2)
+document.getElementById("wrong3a").addEventListener("click", nextQuest2)
+document.getElementById("wrong3b").addEventListener("click", nextQuest2)
 
 function Question3() {
     document.getElementById("quest3").style.display = "none"
@@ -109,8 +126,14 @@ function nextQuest2() {
 document.getElementById("right4").addEventListener("click", Question4)
 document.getElementById("wrong4").addEventListener("click", Question4)
 document.getElementById("wrong4").addEventListener("click", Question4w)
+document.getElementById("wrong4a").addEventListener("click", Question4)
+document.getElementById("wrong4a").addEventListener("click", Question4w)
+document.getElementById("wrong4b").addEventListener("click", Question4)
+document.getElementById("wrong4b").addEventListener("click", Question4w)
 document.getElementById("right4").addEventListener("click", finish)
 document.getElementById("wrong4").addEventListener("click", finish)
+document.getElementById("wrong3a").addEventListener("click", finish)
+document.getElementById("wrong3b").addEventListener("click", finish)
 
 function Question4() {
     document.getElementById("quest4").style.display = "none"
@@ -121,6 +144,6 @@ function Question4w() {
 };
 
 function finish() {
+    if(secondsLeft > 0) {
 
-};
-
+}};
