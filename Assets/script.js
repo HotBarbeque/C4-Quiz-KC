@@ -1,11 +1,12 @@
 var startButton = document.getElementById('start');
 var paragraph = document.getElementById('intro');
 var timeEl = document.querySelector("#time");
+var wonEl = document.querySelector('#youWon');
 var quest1 = document.querySelector("quest1");
 var quest2 = document.querySelector("quest2");
 var quest3 = document.querySelector("quest3");
 var quest4 = document.querySelector("quest4");
-
+var stopTime = false;
 
 //hides questions till prompted
 window.onload = function Quests() {
@@ -27,9 +28,10 @@ startButton.addEventListener('click', function quizStart() {
 var secondsLeft = 60;
 startButton.addEventListener('click', function setTime() {
     var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent  = "Time: " + secondsLeft;
-
+    if(!stopTime) {
+        secondsLeft--;
+        timeEl.textContent  = "Time: " + secondsLeft;
+    }
     if(secondsLeft <= 0) {
         clearInterval(timerInterval);
         sendMessage();
@@ -145,5 +147,7 @@ function Question4w() {
 
 function finish() {
     if(secondsLeft > 0) {
-
+        stopTime = true;
+        var score = secondsLeft;
+        wonEl.textContent  = "You won! Score: " + score;
 }};
