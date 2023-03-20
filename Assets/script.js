@@ -1,26 +1,59 @@
 var startButton = document.getElementById('start');
+var saveButton = document.getElementById('save-score');
 var paragraph = document.getElementById('intro');
 var timeEl = document.querySelector("#time");
 var wonEl = document.querySelector('#youWon');
-var quest1 = document.querySelector("quest1");
-var quest2 = document.querySelector("quest2");
-var quest3 = document.querySelector("quest3");
-var quest4 = document.querySelector("quest4");
 var stopTime = false;
+var nameInput = document.querySelector("#name");
+var userNameSpan = document.querySelector("#user-name");
+var userScoreSpan = document.querySelector("#user-score")
+var msgDiv = document.querySelector("#msg");
+var highScore = document.querySelector("#high-score")
 
-//hides questions till prompted
+
+//hides questions and end score/loss till prompted
 window.onload = function Quests() {
 document.getElementById("quest1").style.display = 'none';
 document.getElementById("quest2").style.display = 'none';
 document.getElementById("quest3").style.display = 'none';
 document.getElementById("quest4").style.display = 'none';
 document.getElementById("youLost").style.display = 'none';
+document.getElementById("score-save").style.display = 'none';
+document.getElementById("scoreHigh").style.display = 'none';
 }
+
+//Displays High Score
+highScore.addEventListener("click", HS)
+
+function HS() {
+    document.getElementById("scoreHigh").style.display = 'flex';
+    stopTime = true;
+    document.getElementById("quest1").style.display = 'none';
+    document.getElementById("quest2").style.display = 'none';
+    document.getElementById("quest3").style.display = 'none';
+    document.getElementById("quest4").style.display = 'none';
+    document.getElementById("youLost").style.display = 'none';
+    document.getElementById("score-save").style.display = 'none';
+    paragraph.style.display = 'none';
+    wonEl.style.display = 'none';
+    var name = localStorage.getItem("name");
+    var score = localStorage.getItem("score");
+    userNameSpan.textContent = name;
+    userScoreSpan.textContent = score;
+    
+
+};
+
 
 //starting the quiz
 startButton.addEventListener('click', function quizStart() {
     startButton.style.display = 'none';
     paragraph.style.display = 'none';
+    document.getElementById("youLost").style.display = 'none';
+    document.getElementById("score-save").style.display = 'none';
+    paragraph.style.display = 'none';
+    wonEl.style.display = 'none';
+    document.getElementById("scoreHigh").style.display = 'none';
     document.getElementById("quest1").style.display = 'inline-block';
 });
 
@@ -61,6 +94,7 @@ document.getElementById("right1").addEventListener("click", nextQuest)
 document.getElementById("wrong1").addEventListener("click", nextQuest)
 document.getElementById("wrong1a").addEventListener("click", nextQuest)
 document.getElementById("wrong1b").addEventListener("click", nextQuest)
+
 function Question1() {
     document.getElementById("quest1").style.display = "none"
 
@@ -134,8 +168,8 @@ document.getElementById("wrong4b").addEventListener("click", Question4)
 document.getElementById("wrong4b").addEventListener("click", Question4w)
 document.getElementById("right4").addEventListener("click", finish)
 document.getElementById("wrong4").addEventListener("click", finish)
-document.getElementById("wrong3a").addEventListener("click", finish)
-document.getElementById("wrong3b").addEventListener("click", finish)
+document.getElementById("wrong4a").addEventListener("click", finish)
+document.getElementById("wrong4b").addEventListener("click", finish)
 
 function Question4() {
     document.getElementById("quest4").style.display = "none"
@@ -150,4 +184,26 @@ function finish() {
         stopTime = true;
         var score = secondsLeft;
         wonEl.textContent  = "You won! Score: " + score;
+        document.getElementById("score-save").style.display = 'flex';
 }};
+
+function displayMessage(type, message) {
+    msgDiv.textContent = message;
+    msgDiv.setAttribute("class", type);
+}
+
+saveButton.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var name = document.querySelector("#name").value
+    var score = secondsLeft
+if (name === "") {
+    displayMessage("error", "Initials cannot be blank");
+} else {
+    displayMessage("Success", "Saved successfully");
+    saveButton.style.display = 'none';
+    document.getElementById("input-group").style.display = 'none';
+    localStorage.setItem("name", name);
+    localStorage.setItem("score", score);
+}
+});

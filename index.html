@@ -10,7 +10,7 @@
 
     <body>
         <header>
-            <b class="high-score">View High Scores</b>
+            <b class="high-score" id="high-score">View Previous Score</b>
             <b class="time-left" id="time">Time: 0</b>
             <h1>Coding Quiz Challenge</h1>
         </header>
@@ -22,6 +22,10 @@
     </div>
     <div class="start-button">
         <button type="button" class="button-start" id="start">Start</button>
+    </div>
+    <div id= "scoreHigh" class="scoreHigh">
+        <b>Initials: <span id="user-name"></span></b><br>
+        <b>Score: <span id="user-score"></span></b>
     </div>
     <div class="questions" id="quest1">
         <b>1. What does acronym CSS mean?</b>
@@ -64,6 +68,15 @@
     </div>
     <div class="won" id="youWon">
     </div>
+    <form class="form" id="score-save" method="POST">
+        <div id= "input-group" class="input-group">
+            <label for="name">Initials:</label>
+            <input type="text" name="name" id="name" placeholder="ABC" />
+        </div>
+        <div id="msg"></div>
+        <button class="button-start" id="save-score">Save Score</button>
+    </form>
+
     <footer class="footer">
     </footer>
     <script src="./Assets/script.js"></script>

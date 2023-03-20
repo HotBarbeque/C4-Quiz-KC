@@ -106,3 +106,27 @@ color: var(--light);
     color: var(--dark);
     font-size: 35px;
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: var(--dark);
+    font-size: 35px;
+}
+
+.scoreHigh {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: var(--dark);
+    font-size: 35px;
+}
