@@ -41,7 +41,7 @@ function HS() {
     var score = localStorage.getItem("score");
     userNameSpan.textContent = name;
     userScoreSpan.textContent = score;
-    
+    if (startButton.addEventListener('click', stopTime = false)) {}
 
 };
 
@@ -185,6 +185,7 @@ function finish() {
     if(secondsLeft > 0) {
         stopTime = true;
         var score = secondsLeft;
+        wonEl.style.display = 'flex';
         wonEl.textContent  = "You won! Score: " + score;
         document.getElementById("score-save").style.display = 'flex';
 }};
