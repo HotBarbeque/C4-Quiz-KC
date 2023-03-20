@@ -1,6 +1,7 @@
 :root {
     --light: #66e69d;
     --dark: #052b18;
+    cursor: crosshair;
 }
 
 html {
@@ -56,6 +57,7 @@ h1 {
     color: var(--light);
     font-size: 25px;
     border-radius: 5%;
+    cursor: crosshair;
 }
 
 .button-start:hover {
@@ -64,8 +66,8 @@ h1 {
 }
 
 .footer {
-    position: absolute;
-    bottom: 50px;
+    position: relative;
+    margin-top: 40px;
     border-top: 3px solid var(--dark);
     width: 100%;
 }
@@ -130,3 +132,9 @@ color: var(--light);
     color: var(--dark);
     font-size: 35px;
 }
+
+.high-score:hover {
+    background-color: var(--dark);
+    color: var(--light);
+}
+

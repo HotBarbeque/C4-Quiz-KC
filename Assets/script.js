@@ -1,3 +1,4 @@
+//Elements from webpage used
 var startButton = document.getElementById('start');
 var saveButton = document.getElementById('save-score');
 var paragraph = document.getElementById('intro');
@@ -179,6 +180,7 @@ function Question4w() {
     secondsLeft -= 15;
 };
 
+//Prompts initial entry if quiz is completed with time left
 function finish() {
     if(secondsLeft > 0) {
         stopTime = true;
